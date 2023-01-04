@@ -2,6 +2,10 @@ const express = require('express');
 require('dotenv').config();
 const bodyParser = require('body-parser');
 const cors = require('cors');
+const connectDB = require('./config/db');
+
+// Connexion To Database
+connectDB();
 
 // Init App
 const app = express();
