@@ -20,7 +20,7 @@ app.get('/', (req, res) => {
 })
 
 // client routes
-app.use('/client/', require('./client/routes/clientRoutes'));
+app.use('/clients/', require('./client/routes/clientRoutes'));
 
 // admin routes
 app.use('/admins/', require('./admin/routes/adminRoutes'));
