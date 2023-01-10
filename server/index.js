@@ -22,6 +22,9 @@ app.get('/', (req, res) => {
 // client routes
 app.use('/client/', require('./client/routes/clientRoutes'));
 
+// admin routes
+app.use('/admins/', require('./admin/routes/adminRoutes'));
+
 // Set Port, Listen For Requests
 const PORT = process.env.PORT || 8000;
 app.listen(PORT, () => { console.log(`Server is running on port ${PORT}`) });
