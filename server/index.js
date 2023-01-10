@@ -25,6 +25,9 @@ app.use('/clients/', require('./client/routes/clientRoutes'));
 // admin routes
 app.use('/admins/', require('./admin/routes/adminRoutes'));
 
+// account routes
+app.use('/accounts/', require('./account/routes/accountRoutes'));
+
 // Set Port, Listen For Requests
 const PORT = process.env.PORT || 8000;
 app.listen(PORT, () => { console.log(`Server is running on port ${PORT}`) });
