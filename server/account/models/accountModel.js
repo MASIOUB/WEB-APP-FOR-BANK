@@ -2,11 +2,6 @@ const mongoose = require('mongoose');
 
 const accountSchema = mongoose.Schema(
     {
-        number: {
-            type: Number,
-            unique: true,
-            required: true,
-        },
         solde: {
             type: Number,
             required: true,

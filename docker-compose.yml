@@ -9,7 +9,6 @@ services:
       - data:/data/db
   server:
     container_name: server
-    restart: always
     build: ./server
     ports:
       - '5000:5000'
@@ -17,7 +16,6 @@ services:
       - db
   client:
     container_name: client
-    restart: always
     build: ./client
     ports:
       - '3000:3000'

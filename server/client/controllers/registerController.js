@@ -4,17 +4,21 @@ const Client = require('../models/clientModel')
 const registerClient = async(req, res) => {
     if(Object.keys(req.body).length > 0) {
         const {
-            fullName,
+            firstName,
+            lastName,
+            CIN,
             phone,
             email,
             password,
             ville,
-            address
         } = req.body;
 
         // check fieilds 
-        if (!fullName || !phone || !email || !password || !ville || !address)
-        return console.log('all fields are required');
+        if (!firstName || !lastName || !CIN || !phone || !email || !password || !ville){
+            console.log('all fields are required');
+            return res.status(402).json({ message: "all fields are required" });
+        }
+        
 
         // check email
         const isClientExist = await Client.findOne({ email });
@@ -27,22 +31,16 @@ const registerClient = async(req, res) => {
 
         // create client
         const client = await Client.create({
-            fullName,
+            firstName,
+            lastName,
+            CIN,
             phone,
             email,
             password: hashedPassword,
             ville,
-            address,
         })
 
-        client ? res.status(201).json({
-            fullName: client.fullName,
-            phone: client.phone,
-            email: client.email,
-            password: hashedPassword,
-            ville: client.ville,
-            address: client.address,
-        })
+        client ? res.status(201).json({ message: "User was registered successfully!" })
         : null;
     }
 }
